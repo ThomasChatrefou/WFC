@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1874682eec1204aad56db1d6776f3d, type: 3}
-  m_Name: Drawing
+  m_Script: {fileID: 11500000, guid: 86209a10f409443449e82f388af3e023, type: 3}
+  m_Name: V_GreenLight
   m_EditorClassIdentifier: 
-  _properties:
-  - {fileID: 11400000, guid: 7b3a5cddd739c804cba3b9e0d5950dbe, type: 2}
+  _data: 0
+  _linkData: {fileID: 11400000, guid: fcef0aef0b9f9344d8b23a156201c3ac, type: 2}
+  _description: clair

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9de2541d56b23c489ee3e69bb683953, type: 3}
+  m_Name: LD_GreenCommon
+  m_EditorClassIdentifier: 
+  Links:
+    _serializedList:
+    - Key: {fileID: 11400000, guid: ba126c118ae58db42bc6567b0de306d0, type: 2}
+      Value: 1
+    - Key: {fileID: 11400000, guid: 067324416bef04d4489e9ff9b1c49f8e, type: 2}
+      Value: 1

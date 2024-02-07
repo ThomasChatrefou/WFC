@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04eb9f023076bbb4092aa894bc8eacb6, type: 3}
-  m_Name: ColourProperty
+  m_Name: P_Red
   m_EditorClassIdentifier: 
-  _isIdentity: 0
+  _isIdentifier: 0
   _values:
-  - {fileID: 11400000, guid: 3274885d13e321a45b461ca51299c527, type: 2}
-  - {fileID: 11400000, guid: 8cba0234bb7699d4fbded2e84af26aa2, type: 2}
-  - {fileID: 11400000, guid: e62f896c121565f4aa6b2850430b3919, type: 2}
-  _description: 'My favorite colour (yes I''m Bri''ish) is :'
+  - {fileID: 11400000, guid: 81202c1238dd22346a117ba9bde08f0d, type: 2}
+  - {fileID: 11400000, guid: 0f18ea7ef0f843842b7a6f754ef38b0d, type: 2}
+  - {fileID: 11400000, guid: d293f2938bd538445b1e8ffeed4e84c3, type: 2}
+  _description: Mon vin rouge est

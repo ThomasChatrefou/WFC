@@ -5,11 +5,12 @@ public class Value : ScriptableObject
 {
     public int Data { get { return _data; } }
     public LinkData LinkData { get { return _linkData; } }
+    public string Description { get { return _description; } }
 
-    [SerializeField]
-    [TextArea]
+    [SerializeField] 
+    private int _data;
+    [SerializeField] 
+    private LinkData _linkData;
+    [SerializeField][TextArea]
     private string _description = null;
-
-    [SerializeField] private int _data;
-    [SerializeField] private LinkData _linkData;
 }

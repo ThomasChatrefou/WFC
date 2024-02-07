@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86209a10f409443449e82f388af3e023, type: 3}
-  m_Name: BlueColourPropertyValue
+  m_Script: {fileID: 11500000, guid: f9de2541d56b23c489ee3e69bb683953, type: 3}
+  m_Name: LD_GreenDark
   m_EditorClassIdentifier: 
-  _description: Blue
+  Links:
+    _serializedList:
+    - Key: {fileID: 11400000, guid: 067324416bef04d4489e9ff9b1c49f8e, type: 2}
+      Value: 1
