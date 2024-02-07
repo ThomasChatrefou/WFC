@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86209a10f409443449e82f388af3e023, type: 3}
-  m_Name: GreenColourPropertyValue
+  m_Name: RedColourPropertyValue
   m_EditorClassIdentifier: 
-  _description: Green
+  _description: Red
