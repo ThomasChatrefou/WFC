@@ -19,7 +19,7 @@ public class SeedUI : MonoBehaviour
 
     void OnUseCustomSeedToggle(bool value)
     {
-        seedInputField.readOnly = !value;
+        seedInputField.interactable = value;
         entityHandler.UseCustomSeed = value;
     }
 
@@ -45,7 +45,6 @@ public class SeedUI : MonoBehaviour
 
         // update seed display
         seedInputField.text = currentSeed.ToString();
-        seedInputField.readOnly = !useCustomSeedToggle.isOn;
     }
 
     public void SetEntityHandlerSeed()

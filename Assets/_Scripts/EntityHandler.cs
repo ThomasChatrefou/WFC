@@ -39,15 +39,17 @@ public class EntityHandler : MonoBehaviour
         DebugDescribeMe();
     }
 
-    public string DescribeMe()
+    public string[] DescribeMe()
     {
-        string result = string.Empty;
+        List<string> descriptions = new List<string>();
+
         for (int i = 0; i < _generatedValues.Count; ++i)
         {
-            result += _entity.Properties[i].Description + " " + _generatedValues[i].Description + ".\n";
+            string description = _entity.Properties[i].Description + " " + _generatedValues[i].Description;
+            descriptions.Add(description);
         }
 
-        return result.ToString();
+        return descriptions.ToArray();
     }
 
     private void DebugDescribeMe()
