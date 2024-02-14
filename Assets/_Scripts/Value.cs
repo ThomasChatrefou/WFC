@@ -7,6 +7,8 @@ public class Value : ScriptableObject
     public LinkData LinkData { get { return _linkData; } }
     public string Description { get { return _description; } }
 
+    public bool HasLinks => _linkData != null;
+
     [SerializeField] 
     private int _data;
     [SerializeField] 

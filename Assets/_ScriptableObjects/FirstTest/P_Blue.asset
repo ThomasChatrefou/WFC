@@ -17,4 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba126c118ae58db42bc6567b0de306d0, type: 2}
   - {fileID: 11400000, guid: 067324416bef04d4489e9ff9b1c49f8e, type: 2}
   - {fileID: 11400000, guid: f0d3cdd3296cfc44395fa20941a11ec2, type: 2}
+  _name: Blue
   _description: Ma belle couleur bleue est

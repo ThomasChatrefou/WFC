@@ -17,4 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 81202c1238dd22346a117ba9bde08f0d, type: 2}
   - {fileID: 11400000, guid: 0f18ea7ef0f843842b7a6f754ef38b0d, type: 2}
   - {fileID: 11400000, guid: d293f2938bd538445b1e8ffeed4e84c3, type: 2}
+  _name: Red
   _description: Mon vin rouge est

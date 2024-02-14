@@ -10,40 +10,75 @@ public static class Generator
     public struct Input
     {
         public List<Property> Properties;
-        public List<Value> InitialConditions;
+        public List<Value> InitialValues;
+        public HashSet<int> InitialValuesPropertyIndexes;
         public int Seed;
     }
 
-    public static void Generate(out List<Value> output, Input input)
+    public static void Generate(out List<Value> outputValues, out List<List<float>> probabilities, Input input)
     {
-        output = new() { Capacity = input.Properties.Count };
         Random.InitState(input.Seed);
 
-        foreach (Property property in input.Properties)
+        // Start by adding the initial values so they will all participate in generation of the properties to generate
+        outputValues = new() { Capacity = input.Properties.Count };
+        outputValues.AddRange(input.InitialValues);
+
+        List<int> outputIndexes = new() { Capacity = input.Properties.Count };
+        outputIndexes.AddRange(input.InitialValuesPropertyIndexes);
+
+        probabilities = new() { Capacity = input.Properties.Count };
+        for (int i = 0; i < outputValues.Count; ++i)
         {
-            List<float> probaPerValue = new() { Capacity = property.Values.Count };
-            ComputeProba(ref probaPerValue, output, property);
-            NormalizeProba(ref probaPerValue);
-            int chosenIndex = Roll(probaPerValue);
-            output.Add(property.Values[chosenIndex]);
+            int propertyIndex = outputIndexes[i];
+            FillProbabilitiesForInitialValues(out List<float> probaPerValue, input.Properties[propertyIndex], outputValues[i]);
+            probabilities.Add(probaPerValue);
         }
+
+        int propertiesCount = input.Properties.Count;
+        for (int i = 0; i < propertiesCount; i++)
+        {
+            if (input.InitialValuesPropertyIndexes.Contains(i))
+                continue;
+            
+            outputValues.Add(ChooseValueForProperty(out List<float> probaPerValue, input.Properties[i], outputValues));
+            outputIndexes.Add(i);
+            probabilities.Add(probaPerValue);
+        }
+
+        ListUtility.Sort(ref outputValues, outputIndexes);
+        ListUtility.Sort(ref probabilities, outputIndexes);
     }
 
     /// <summary>
-    /// Formula of probabilities to choose any value in a single property 
+    /// Single step of the generator algo. This can be used to reroll one single property.
+    /// </summary>
+    /// <param name="property"></param>
+    /// <param name="constraints"></param>
+    /// <returns></returns>
+    public static Value ChooseValueForProperty(out List<float> probaPerValue, Property property, List<Value> constraints)
+    {
+        probaPerValue = new() { Capacity = property.Values.Count };
+        ComputeProba(ref probaPerValue, property, constraints);
+        NormalizeProba(ref probaPerValue);
+        int chosenIndex = Roll(probaPerValue);
+        return property.Values[chosenIndex];
+    }
+
+    /// <summary>
+    /// Formula of probabilities to choose any value in a single property.
     /// </summary>
     /// <param name="probaPerValue"></param>
-    /// <param name="output"></param>
+    /// <param name="constraints"></param>
     /// <param name="property"></param>
-    public static void ComputeProba(ref List<float> probaPerValue, List<Value> output, Property property)
+    public static void ComputeProba(ref List<float> probaPerValue, Property property, List<Value> constraints)
     {
         foreach (Value candidate in property.Values)
         {
             float candidateProba = 0f;
-            foreach (Value generated in output)
+            foreach (Value constraint in constraints)
             {
-                // [TO THINK] Should we be adding a default probability that can be > 0 ?
-                if (generated.LinkData.Links.TryGetValue(candidate, out float linkProba))
+                // [TO THINK] Should we be adding a default probability that can be > 0 when there is no data for candidate key ?
+                if (constraint.HasLinks && constraint.LinkData.Links.TryGetValue(candidate, out float linkProba))
                 {
                     candidateProba += linkProba;
                 }
@@ -80,7 +115,7 @@ public static class Generator
     }
 
     /// <summary>
-    /// Chooses an index in a Value list randomly according to the probabilities
+    /// Chooses an index in a Value list randomly according to the probabilities.
     /// </summary>
     /// <param name="probaPerValue">should be normalized</param>
     public static int Roll(List<float> probaPerValue)
@@ -112,5 +147,21 @@ public static class Generator
     public static int FindNearestValidSeed(int seed)
     {
         return Mathf.Clamp(seed, UInt16.MinValue, UInt16.MaxValue - 1);
+    }
+
+    public static void FillProbabilitiesForInitialValues(out List<float> probaPerValue, Property property, Value value)
+    {
+        probaPerValue = new() { Capacity = property.Values.Count };
+        foreach (Value candidate in property.Values)
+        {
+            if (candidate == value)
+            {
+                probaPerValue.Add(1.0f);
+            }
+            else
+            {
+                probaPerValue.Add(0.0f);
+            }
+        }
     }
 }

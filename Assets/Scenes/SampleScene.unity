@@ -435,6 +435,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 11400000, guid: d7b471b6714681e4c9de931b8c297cf4, type: 2}
+  _useCustomSeed: 1
+  _seed: 10193
+  _propertyToRerollIndex: 1
+  _prelockedProperties: 0000000001000000
 --- !u!4 &1890175241
 Transform:
   m_ObjectHideFlags: 0
