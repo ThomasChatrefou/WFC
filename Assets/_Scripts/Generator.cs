@@ -1,15 +1,25 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public static class Generator
 {
     public const float EPSILON = 0.001f;
 
-    public static void Generate(out List<Value> output, List<Property> properties)
+    public struct Input
     {
-        output = new() { Capacity = properties.Count };
-        
-        foreach (Property property in properties)
+        public List<Property> Properties;
+        public List<Value> InitialConditions;
+        public int Seed;
+    }
+
+    public static void Generate(out List<Value> output, Input input)
+    {
+        output = new() { Capacity = input.Properties.Count };
+        Random.InitState(input.Seed);
+
+        foreach (Property property in input.Properties)
         {
             List<float> probaPerValue = new() { Capacity = property.Values.Count };
             ComputeProba(ref probaPerValue, output, property);
@@ -20,7 +30,7 @@ public static class Generator
     }
 
     /// <summary>
-    /// Formula of probabilities to choose each Values in a single property 
+    /// Formula of probabilities to choose any value in a single property 
     /// </summary>
     /// <param name="probaPerValue"></param>
     /// <param name="output"></param>
@@ -92,5 +102,15 @@ public static class Generator
         }
 
         return index;
+    }
+
+    public static int GenerateSeed()
+    {
+        return Random.Range(UInt16.MinValue, UInt16.MaxValue);
+    }
+
+    public static int FindNearestValidSeed(int seed)
+    {
+        return Mathf.Clamp(seed, UInt16.MinValue, UInt16.MaxValue - 1);
     }
 }
