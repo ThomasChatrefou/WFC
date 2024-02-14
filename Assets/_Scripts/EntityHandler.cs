@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
@@ -6,12 +5,29 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class EntityHandler : MonoBehaviour
 {
-    [SerializeField] private Entity _entity;
+    public bool UseCustomSeed
+    {
+        get { return _useCustomSeed; }
+        set { _useCustomSeed = value; }
+    }
+    public int Seed
+    {
+        get { return _seed; }
+        set { _seed = Generator.FindNearestValidSeed(value); }
+    }
 
     [Button]
     public void Generate()
     {
-        Generator.Generate(out _generatedValues, _entity.Properties);
+        if (!_useCustomSeed) _seed = Generator.GenerateSeed();
+
+        Generator.Generate(out _generatedValues, 
+            new Generator.Input()
+            {
+                Properties = _entity.Properties,
+                Seed = _seed
+            });
+
         DescribeMe();
     }
 
@@ -25,5 +41,13 @@ public class EntityHandler : MonoBehaviour
         Debug.Log(result);
     }
 
-    private List<Value> _generatedValues = null;
+    [SerializeField]
+    private Entity _entity;
+    [SerializeField]
+    private bool _useCustomSeed;
+    [SerializeField]
+    [EnableIf("_useCustomSeed")]
+    private int _seed;
+
+    private List<Value> _generatedValues;
 }
