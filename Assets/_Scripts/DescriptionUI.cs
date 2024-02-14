@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using System.Text;
 
 public class DescriptionUI : MonoBehaviour
 {
@@ -22,22 +23,20 @@ public class DescriptionUI : MonoBehaviour
 
     public void GenerateGameObjects()
     {
-        entityHandler.Generate();
         UpdateMultipleGenerationText();
     }
 
     private void UpdateSingleGenerationText()
     {
         string[] generationDescriptions = entityHandler.DescribeMe();
-        string result = null;
-        string description = null;
+        StringBuilder descriptionBuilder = new StringBuilder();
 
-        for (int i = 0; i < generationDescriptions.Length; i++)
+        foreach (string generationDescription in generationDescriptions)
         {
-            result = description;
-            description = result + generationDescriptions[i] + Environment.NewLine;
+            descriptionBuilder.AppendLine(generationDescription + ".");
         }
 
+        string description = descriptionBuilder.ToString().TrimEnd();
         this.fullDescription.text = description;
     }
 

@@ -107,7 +107,7 @@ namespace SlimUI.ModernMenu{
 
 		public void ReturnMenu(){
 			seedMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
+			// if(extrasMenu) extrasMenu.SetActive(false);
 			exitMenu.SetActive(false);
 			mainMenu.SetActive(true);
 		}
