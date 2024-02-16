@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefc189e8b7b85046a5a43b224a712ce, type: 3}
+  m_Name: D_FuturDescription
+  m_EditorClassIdentifier: 
+  templates:
+  - 'Looking ahead, the {property} holds promises of {value} adventures and new beginnings. '
+  - 'Envisioning the {property}, I see a horizon painted with {value} aspirations. '
+  - 'My {property} will be {value} and fill with challenges. '
+  - 'My {property} will be {value}, it may hold challenges. '
+  - The {property} will be {value}.
+  - 'The {property} will be {value}, it may also have darker moments. '
+  - 'My {property} will seem {value} at times, it may have some shadows. '

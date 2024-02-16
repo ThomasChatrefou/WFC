@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1874682eec1204aad56db1d6776f3d, type: 3}
+  m_Name: E_Drawing
+  m_EditorClassIdentifier: 
+  _properties:
+  - {fileID: 11400000, guid: 9024a28f758dbba4dafe87843a218f89, type: 2}
+  - {fileID: 11400000, guid: b3471a4adcf35264a83d8698501ada74, type: 2}
+  - {fileID: 11400000, guid: b86712295594be0499f5dba040ddd158, type: 2}
+  - {fileID: 11400000, guid: 00711206507669641839d2dc58ab4615, type: 2}
+  - {fileID: 11400000, guid: 70e7d425509da32418ed8ac3cc069b37, type: 2}
+  - {fileID: 11400000, guid: 9f2b59ed87a812141877acfad4982803, type: 2}
+  - {fileID: 11400000, guid: 22d6f700e675e5044a9278da9453b711, type: 2}
+  - {fileID: 11400000, guid: 94ae1bacb6da47b4a93161713c915852, type: 2}

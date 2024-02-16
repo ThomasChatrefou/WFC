@@ -7,6 +7,7 @@ using System.Text;
 public class DescriptionUI : MonoBehaviour
 {
     public EntityHandler entityHandler;
+    public Description descriptionTemplate;
 
     [Header("Multiple GameObjects return")]
     public Transform descriptionContainer;
@@ -28,12 +29,12 @@ public class DescriptionUI : MonoBehaviour
 
     private void UpdateSingleGenerationText()
     {
-        string[] generationDescriptions = entityHandler.DescribeMe();
+        string[] generationDescriptions = entityHandler.DescribeMeWithBio();
         StringBuilder descriptionBuilder = new StringBuilder();
 
         foreach (string generationDescription in generationDescriptions)
         {
-            descriptionBuilder.AppendLine(generationDescription + ".");
+            descriptionBuilder.AppendLine(generationDescription);
         }
 
         string description = descriptionBuilder.ToString().TrimEnd();

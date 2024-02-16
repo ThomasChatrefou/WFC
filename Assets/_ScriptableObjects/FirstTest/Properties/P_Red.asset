@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04eb9f023076bbb4092aa894bc8eacb6, type: 3}
+  m_Name: P_Red
+  m_EditorClassIdentifier: 
+  _isIdentifier: 0
+  _values:
+  - {fileID: 11400000, guid: 2749015b14805c04a85df8ce9f4d81f5, type: 2}
+  - {fileID: 11400000, guid: d5fe9b6a2eee16041b16aec42a23c0ac, type: 2}
+  - {fileID: 11400000, guid: 3aa9e5948f036e24092008a961566080, type: 2}
+  - {fileID: 11400000, guid: ffba54794bd8b22488de22b7cf06b375, type: 2}
+  - {fileID: 11400000, guid: 25ba1fef4f27c664c9908008f2ae715e, type: 2}
+  - {fileID: 11400000, guid: 9a7a81202be4232418bbf775beaeb0f9, type: 2}
+  _descriptionTemplate: {fileID: 11400000, guid: 8139e6897c4c9d444b5ce91911ba5e86,
+    type: 2}
+  _description: red

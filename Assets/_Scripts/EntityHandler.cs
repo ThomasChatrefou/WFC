@@ -45,12 +45,33 @@ public class EntityHandler : MonoBehaviour
 
         for (int i = 0; i < _generatedValues.Count; ++i)
         {
-            string description = _entity.Properties[i].Description + " " + _generatedValues[i].Description;
+            string description = _generatedValues[i].Description + " " + _entity.Properties[i].Description;
             descriptions.Add(description);
         }
 
         return descriptions.ToArray();
     }
+
+    public string[] DescribeMeWithBio()
+    {
+        List<string> descriptions = new List<string>();
+
+        for (int i = 0; i < _generatedValues.Count; ++i)
+        {
+            Description template = _entity.Properties[i].DescriptionTemplate;
+            // select random description
+            string selectedTemplate = template.templates[UnityEngine.Random.Range(0, template.templates.Length)];
+
+            // Replace {property} and {value} by real descriptions
+            string description = selectedTemplate.Replace("{property}", $"<color=green>{_entity.Properties[i].Description}</color>")
+                                                .Replace("{value}", $"<color=red>{_generatedValues[i].Description}</color>");
+
+            descriptions.Add(description + "\n");
+        }
+
+        return descriptions.ToArray();
+    }
+
 
     private void DebugDescribeMe()
     {

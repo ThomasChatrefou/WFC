@@ -7,11 +7,15 @@ public class Property : ScriptableObject
     public List<Value> Values { get { return _values; } }
     public bool IsIdentifier { get { return _isIdentifier; } }
     public string Description { get { return _description; } }
+    public Description DescriptionTemplate { get { return _descriptionTemplate; } }
+
 
     [SerializeField]
     private bool _isIdentifier;
     [SerializeField]
     private List<Value> _values = new();
+    [SerializeField]
+    private Description _descriptionTemplate;
     [SerializeField][TextArea]
     private string _description = null;
 }

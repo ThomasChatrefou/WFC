@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityHandler: {fileID: 1862528165}
+  descriptionTemplate: {fileID: 0}
   descriptionContainer: {fileID: 1915719358}
   descriptionPrefab: {fileID: 3605727962378255239, guid: e6e026711c66b3e47aa1c82ddbbd42ee,
     type: 3}
@@ -2500,6 +2501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityHandler: {fileID: 1862528165}
+  descriptionTemplate: {fileID: 11400000, guid: 447bd501fcad94a4d80f1322a108688d,
+    type: 2}
   descriptionContainer: {fileID: 0}
   descriptionPrefab: {fileID: 0}
   fullDescription: {fileID: 232758078}
