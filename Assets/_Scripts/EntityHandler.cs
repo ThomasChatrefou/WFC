@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using Unity.VisualScripting;
@@ -6,6 +7,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class EntityHandler : MonoBehaviour
 {
+    public event Action<int> SeedChanged;
+
     public bool UseCustomSeed
     {
         get { return _useCustomSeed; }
@@ -14,7 +17,11 @@ public class EntityHandler : MonoBehaviour
     public int Seed
     {
         get { return _seed; }
-        set { _seed = Generator.FindNearestValidSeed(value); }
+        set
+        {
+            _seed = Generator.FindNearestValidSeed(value);
+            SeedChanged?.Invoke(_seed);
+        }
     }
 
     public bool HasBeenGenerated { get; private set; } = false;
@@ -47,6 +54,7 @@ public class EntityHandler : MonoBehaviour
 
         HasBeenGenerated = true;
         DescribeMe();
+        DebugDescribeMe();
     }
 
     [Button]
@@ -127,13 +135,48 @@ public class EntityHandler : MonoBehaviour
         DescribeMe();
     }
 
-    private void DescribeMe()
+    public string[] DescribeMe()
+    {
+        List<string> descriptions = new List<string>();
+
+        for (int i = 0; i < _generatedValues.Count; ++i)
+        {
+            string description = _generatedValues[i].Description + " " + _entity.Properties[i].Description;
+            descriptions.Add(description);
+        }
+
+        return descriptions.ToArray();
+    }
+
+    public string[] DescribeMeWithBio()
+    {
+        List<string> descriptions = new List<string>();
+
+        for (int i = 0; i < _generatedValues.Count; ++i)
+        {
+            Description template = _entity.Properties[i].DescriptionTemplate;
+            // select random description
+            string selectedTemplate = template.templates[UnityEngine.Random.Range(0, template.templates.Length)];
+
+            // Replace {property} and {value} by real descriptions
+            string description = selectedTemplate.Replace("{property}", $"<color=green>{_entity.Properties[i].Description}</color>")
+                                                .Replace("{value}", $"<color=red>{_generatedValues[i].Description}</color>");
+
+            descriptions.Add(description + "\n");
+        }
+
+        return descriptions.ToArray();
+    }
+
+
+    private void DebugDescribeMe()
     {
         string result = string.Empty;
         for (int i = 0; i < _generatedValues.Count; ++i)
         {
             result += _entity.Properties[i].Description + " " + _generatedValues[i].Description + ".\n";
         }
+
         Debug.Log(result);
     }
 

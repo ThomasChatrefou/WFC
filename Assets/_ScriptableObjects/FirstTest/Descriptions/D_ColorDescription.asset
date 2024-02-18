@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefc189e8b7b85046a5a43b224a712ce, type: 3}
+  m_Name: D_ColorDescription
+  m_EditorClassIdentifier: 
+  templates:
+  - The {property} is {value}.
+  - 'I am {property} {value}. '
+  - 'If I were to define myself in one color, I would have a {value} {property} personality. '
+  - 'I define myself as {value} {property}. '
+  - 'In the darkness, the {property} blends into a {value} hue, evoking hidden secrets. '
+  - 'I am often described as {value} {property}. '
+  - 'My nature is {value} {property}, I love colors. '
+  - 'I am known for being {value} {property}. '
+  - 'My name is {value} {property}. '
+  - 'My main characteristic is being {value} {property}. '
+  - 'The clarity of the {value} {property} is darkened by nuances, revealing buried
+    mysteries. '
+  - 'The immaculate {value} {property} is punctuated with spots, like shadows in
+    the light. '
+  - 'The walls {value} {property} are marked by streaks, witnesses of the passage
+    of time. '
+  - 'The snow {value} {property} is streaked with patterns, like prints in the ice. '
+  - 'The dazzling whiteness is mixed with tones, like memories in the wind. '
+  - 'The pure {value} {property} is intertwined with threads, weaving a silent story. '
+  - 'The clouds {value} {property} are tinted with reflections, like dreams in the
+    sky. '
+  - 'The light {value} {property} is mixed with gleams, like echoes in the darkness. '
+  - 'The dress {value} {property} is marked by spots, telling a tumultuous story. '
+  - 'The brightness {value} {property} is streaked with patterns, like lightning
+    in the night. '
+  - 'The purity of the {value} {property} is obscured by hues, like kept secrets. '
+  - 'The canvas {value} {property} is marked by brushstrokes, revealing hidden emotions. '
+  - 'The immaculate {value} {property} is intertwined with threads, like buried dreams. '
+  - 'The feathers {value} {property} is punctuated with spots, like stars in the
+    sky. '
+  - 'The surface {value} {property} is dotted with patterns, like reflections in
+    the water. '
+  - 'The brightness {value} {property} is streaked with stripes, like zebra stripes
+    in the savannah. '
+  - 'The softness of the {value} {property} is interrupted by shadows, like nightmares
+    in the day. '
+  - 'The stone {value} {property} is streaked with veins, like engraved stories. '
+  - 'The pages {value} {property} is stained with spots, like revealed secrets. '
+  - 'The brightness {value} {property} is darkened by hues, like dark thoughts. '
+  - 'The softness of the {value} {property} is intertwined with threads, like embraces
+    in the night. '
+  - 'The softness of the {value} {property} is intertwined with threads, like embraces
+    in the night. '
+  - 'The immaculate {value} {property} is tinted with hues, like clarified mysteries. '
+  - 'The skin {value} {property} is marked by spots, like anchored memories. '
+  - 'The clarity of the {value} {property} is obscured by nuances, like echoes in
+    the silence. '
+  - 'The veils {value} {property} is stained with spots, like clouds in the sky. '
+  - 'The brightness {value} {property} is marked by streaks, like paths in the snow. '
+  - 'The leaves {value} {property} is dotted with points, like notes in the music. '
+  - 'The immaculate {value} {property} is tinted with hues, like clarified mysteries. '
+  - 'The skin {value} {property} is marked by spots, like anchored memories. '
+  - 'The clarity of the {value} {property} is obscured by nuances, like echoes in
+    the silence. '
+  - 'The veils {value} {property} is stained with spots, like clouds in the sky. '
+  - 'The brightness {value} {property} is marked by streaks, like paths in the snow. '
+  - 'The leaves {value} {property} is dotted with points, like notes in the music. '
+  - 'The clarity of the {value} {property} is dimmed by reflections, like stars in
+    the night. '
+  - 'The whiteness of the stone is striated with veins {value}s, like engraved stories. '
+  - 'The immaculate {value} {property} is tinted with reflections, like dreams in
+    the water. '
+  - 'The whiteness of the petals is marked by streaks {value}s, like rivers in the
+    snow. '
+  - 'The bright {property} is intertwined with nuances {value}s, like stories in
+    the clouds. '
+  - 'My favorite color is {value} {property}. '
+  - 'Verlan consists of speaking backwards as when we say: "{property} {value}. I
+    think? '
+  - 'Yoda would have said {property} {value}. '
+  - 'I hate the {value} {property}. '
+  - 'I often think about the {value} {property}. '
+  - '{property} {value} {property} {value} {property} {value}! '
+  - 'There are different types of {value} {property}, you know? '
+  - 'I love {value} {property} when it''s put on wood. '
+  - 'Imagine if the sky were {value} {property}. Wouldn''t that be crazy? '
+  - 'I have a {value} {property} hammer at home. '
+  - 'I would like llamas to be {value} {property}.     '

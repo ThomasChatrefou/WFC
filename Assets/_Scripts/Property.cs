@@ -8,6 +8,8 @@ public class Property : ScriptableObject
     public bool IsIdentifier { get { return _isIdentifier; } }
     public string Name { get { return _name; } }
     public string Description { get { return _description; } }
+    public Description DescriptionTemplate { get { return _descriptionTemplate; } }
+
 
     [SerializeField]
     private bool _isIdentifier;
@@ -15,6 +17,7 @@ public class Property : ScriptableObject
     private List<Value> _values = new();
     [SerializeField]
     private string _name = null;
+    private Description _descriptionTemplate;
     [SerializeField][TextArea]
     private string _description = null;
 }
