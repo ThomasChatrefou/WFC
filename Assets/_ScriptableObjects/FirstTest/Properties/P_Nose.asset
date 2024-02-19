@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8dc05243e66ed124fa1f140cba3d20a8, type: 2}
   - {fileID: 11400000, guid: 976b6e069d9cd4c4ab649ce163afbe70, type: 2}
   - {fileID: 11400000, guid: 94a149a71d1fb6b44a48e00edcf86f80, type: 2}
+  _name: 
   _descriptionTemplate: {fileID: 11400000, guid: 0cfaa9dac0dd89644a119c565237bf7c,
     type: 2}
-  _description: nose
+  _description: Nose

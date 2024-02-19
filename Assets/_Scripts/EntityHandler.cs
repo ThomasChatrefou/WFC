@@ -84,24 +84,8 @@ public class EntityHandler : MonoBehaviour
         {
             for (int i = 0; i < _entity.Properties.Count; ++i)
             {
-                Property currentProperty = _entity.Properties[i];
-                log += "Property : " + currentProperty.Name + " => ";
-                for (int j = 0; j < currentProperty.Values.Count; ++j)
-                {
-                    if (j > 0) log += " | ";
-                    Value currentValue = currentProperty.Values[j];
-                    bool isSelected = currentValue == _generatedValues[i];
-                    if (isSelected)
-                    {
-                        log += "[ ";
-                    }
-                    log += currentValue.Description + $" ({_probabilities[i][j]:0.00})";
-                    if (isSelected)
-                    {
-                        log += " ]";
-                    }
-                }
-                log += "\n";
+                log += "Trait : " + _entity.Properties[i].Name + "\n";
+                log += PrintPropertyProbabilities(i);
             }
         }
         else
@@ -111,8 +95,35 @@ public class EntityHandler : MonoBehaviour
         Debug.Log(log);
     }
 
+    public string PrintPropertyProbabilities(int propertyIndex)
+    {
+        string log = string.Empty;
+        if (HasBeenGenerated)
+        {
+            Property currentProperty = _entity.Properties[propertyIndex];
+            for (int j = 0; j < currentProperty.Values.Count; ++j)
+            {
+                Value currentValue = currentProperty.Values[j];
+                bool isSelected = currentValue == _generatedValues[propertyIndex];
+                log += currentValue.Description + $" : {100 * _probabilities[propertyIndex][j]:0} %";
+                if (isSelected)
+                {
+                    log += "  - selected !";
+                }
+                log += "\n";
+            }
+        }
+        else
+        {
+            log = "You should start with a generation first !";
+        }
+        return log;
+    }
+
     public void RerollProperty(int propertyIndex)
     {
+        Debug.Log($"rerolling property {propertyIndex} : " + _entity.Properties[propertyIndex].Description);
+
         if (HasBeenGenerated)
         {
             _generatedValues.RemoveAt(propertyIndex);
@@ -135,14 +146,32 @@ public class EntityHandler : MonoBehaviour
         DescribeMe();
     }
 
+    public void ToggleLockProperty(int propertyIndex)
+    {
+        if (_lockedPropertiesIndexes.Contains(propertyIndex))
+        {
+            _lockedPropertiesIndexes.Remove(propertyIndex);
+        }
+        else
+        {
+            _lockedPropertiesIndexes.Add(propertyIndex);
+        }
+    }
+
+    public bool IsPropertyLocked(int propertyIndex)
+    {
+        return _lockedPropertiesIndexes.Contains(propertyIndex);
+    }
+
     public string[] DescribeMe()
     {
         List<string> descriptions = new List<string>();
 
         for (int i = 0; i < _generatedValues.Count; ++i)
         {
-            string description = _generatedValues[i].Description + " " + _entity.Properties[i].Description;
-            descriptions.Add(description);
+            string log = "Trait : " + _entity.Properties[i].Description + "\n";
+            log += PrintPropertyProbabilities(i);
+            descriptions.Add(log);
         }
 
         return descriptions.ToArray();

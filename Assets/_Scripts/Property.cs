@@ -17,6 +17,7 @@ public class Property : ScriptableObject
     private List<Value> _values = new();
     [SerializeField]
     private string _name = null;
+    [SerializeField]
     private Description _descriptionTemplate;
     [SerializeField][TextArea]
     private string _description = null;

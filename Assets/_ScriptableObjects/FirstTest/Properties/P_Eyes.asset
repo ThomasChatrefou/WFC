@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79a5df8b267110c45af3b6c944f6b684, type: 2}
   - {fileID: 11400000, guid: 50c64d03a95aef648a031214dd36956d, type: 2}
   - {fileID: 11400000, guid: 6353a2aec5d0be04f8e9f05c9b1fd8f4, type: 2}
+  _name: 
   _descriptionTemplate: {fileID: 11400000, guid: 0cfaa9dac0dd89644a119c565237bf7c,
     type: 2}
-  _description: eyes
+  _description: Eyes

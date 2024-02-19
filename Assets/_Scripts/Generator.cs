@@ -25,6 +25,7 @@ public static class Generator
 
         List<int> outputIndexes = new() { Capacity = input.Properties.Count };
         outputIndexes.AddRange(input.InitialValuesPropertyIndexes);
+        ListUtility.Sort(ref outputIndexes, outputIndexes);
 
         probabilities = new() { Capacity = input.Properties.Count };
         for (int i = 0; i < outputValues.Count; ++i)

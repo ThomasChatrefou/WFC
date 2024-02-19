@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1c1dabd09edefd42bb4f82b07866d2b, type: 2}
   - {fileID: 11400000, guid: f54e157ee351b654bbefd9fb58608258, type: 2}
   - {fileID: 11400000, guid: eeb94ff1c8400b041be996611b536ca1, type: 2}
+  _name: 
   _descriptionTemplate: {fileID: 11400000, guid: 8139e6897c4c9d444b5ce91911ba5e86,
     type: 2}
-  _description: blue
+  _description: Blue

@@ -3,6 +3,7 @@ using TMPro;
 using System;
 using Unity.VisualScripting;
 using System.Text;
+using UnityEngine.UI;
 
 public class DescriptionUI : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class DescriptionUI : MonoBehaviour
 
     [Header ("One string return")]
     public TextMeshProUGUI fullDescription;
+
 
     public void GenerateOneString()
     {
@@ -48,17 +50,23 @@ public class DescriptionUI : MonoBehaviour
         // remove previous elements
         foreach (Transform child in descriptionContainer)
         {
+            DescriptionPropertyController[] descriptionPropertyControllers = child.GetComponentsInChildren<DescriptionPropertyController>();
+            foreach (DescriptionPropertyController controller in descriptionPropertyControllers)
+            {
+                controller.RerollClicked -= OnRerollClicked;
+                controller.LockClicked -= OnLockClicked;
+            }
             Destroy(child.gameObject);
         }
 
         // add ui prefab for each description
-        foreach (string description in generationDescriptions)
+        for (int i = 0; i < generationDescriptions.Length; i++)
         {
-            AddDescriptionUI(description);
+            AddDescriptionUI(generationDescriptions[i], i);
         }
     }
 
-    private void AddDescriptionUI(string description)
+    private void AddDescriptionUI(string description, int propertyIndex)
     {
         GameObject descriptionUI = Instantiate(descriptionPrefab, descriptionContainer);
 
@@ -68,5 +76,29 @@ public class DescriptionUI : MonoBehaviour
         {
             descriptionText.text = description;
         }
+
+        DescriptionPropertyController[] descriptionPropertyControllers = descriptionUI.GetComponentsInChildren<DescriptionPropertyController>();
+        foreach (DescriptionPropertyController controller in descriptionPropertyControllers)
+        {
+            controller.Index = propertyIndex;
+            controller.RerollClicked += OnRerollClicked;
+            controller.LockClicked += OnLockClicked;
+            controller.Locked = entityHandler.IsPropertyLocked(propertyIndex);
+        }
     }
+
+    private void OnRerollClicked(int propertyIndex)
+    {
+        entityHandler.RerollProperty(propertyIndex);
+        _mainDescription.UpdateSingleGenerationText();
+        GenerateGameObjects();
+    }
+
+    private void OnLockClicked(int propertyIndex)
+    {
+        entityHandler.ToggleLockProperty(propertyIndex);
+    }
+
+    [SerializeField]
+    private DescriptionUI _mainDescription;
 }

@@ -19,6 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d76a472dd9e903043876b9a3d2ead455, type: 2}
   - {fileID: 11400000, guid: 28ee881645017634a834b72e8590830e, type: 2}
   - {fileID: 11400000, guid: e1fdbb1801f2a994b90255905926e965, type: 2}
+  _name: 
   _descriptionTemplate: {fileID: 11400000, guid: 0cfaa9dac0dd89644a119c565237bf7c,
     type: 2}
-  _description: work
+  _description: Job

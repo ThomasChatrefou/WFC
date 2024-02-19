@@ -16,6 +16,7 @@ MonoBehaviour:
   _values:
   - {fileID: 11400000, guid: bc35f7c30398b2947871118391e85a0c, type: 2}
   - {fileID: 11400000, guid: 95863c394b48dc0478328e63cda4432f, type: 2}
+  _name: 
   _descriptionTemplate: {fileID: 11400000, guid: 447bd501fcad94a4d80f1322a108688d,
     type: 2}
-  _description: futur
+  _description: Futur
